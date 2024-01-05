@@ -1,0 +1,92 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #222, #000);
+}
+
+.clock {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #222, #000);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock::before {
+  position: absolute;
+  content: "";
+  height: 440px;
+  width: 440px;
+  background: linear-gradient(to right, #870000, #4a00e0);
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 0 0px 15px 15px rgba(255, 255, 255, 0.05);
+}
+
+.clock .num {
+  position: absolute;
+  inset: 20px;
+  text-align: center;
+  transform: rotate(calc(var(--a) * (360deg / 12)));
+}
+
+.clock .num b {
+  display: inline-block;
+  font-size: 25px;
+  font-weight: 500;
+  color: #4a00e0;
+  transform: rotate(calc(var(--a) * (-360deg / 12)));
+}
+
+.clock .dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #4a00e0;
+  border-radius: 50%;
+  border: 5px solid #870000;
+  z-index: 10;
+}
+
+.clock .hand {
+  position: absolute;
+  height: 130px;
+  width: 4px;
+  background: linear-gradient(to top, #870000, #4a00e0);
+  border-radius: 50px;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  transform-origin: bottom;
+}
+
+.clock .hand.min {
+  height: 110px;
+  width: 6px;
+  background: linear-gradient(to top, #4a00e0, #870000);
+  transform: translate(-50%) rotate(40deg);
+}
+
+.clock .hand.hour {
+  height: 80px;
+  width: 8px;
+  background: linear-gradient(to top, #4a00e0, #870000, #4a00e0);
+  transform: translate(-50%) rotate(80deg);
+}
